@@ -2,7 +2,9 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="mobile-web-app-capable" content="yes">
 	<title>ひらブリ！- Hira Buri! - Kana Blitz Game</title>
 
 	<link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Kosugi+Maru&family=Kaisei+Tokumin:wght@400;700&family=Kaisei+Decol:wght@400;700&family=Zen+Kurenaido&family=Sawarabi+Mincho&family=Sawarabi+Gothic&family=Dela+Gothic+One&family=RocknRoll+One&family=Hachi+Maru+Pop&family=Noto+Sans+JP:wght@400;700&family=Yuji+Mai&family=Yuji+Syuku&family=Yuji+Boku&family=Reggae+One&family=Train+One&family=Hina+Mincho&family=Press+Start+2P&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
@@ -282,11 +284,33 @@
 			font-family: var(--font-family);
 			font-weight: 300;
 			min-height: 100vh;
+			min-height: 100dvh; /* Dynamic viewport height for mobile */
 			display: flex;
 			flex-direction: column;
 			letter-spacing: 0.03rem;
 			overflow-x: hidden;
 			position: relative;
+		}
+
+		/* Prevent pull-to-refresh and overscroll on mobile */
+		html {
+			overscroll-behavior: none;
+		}
+
+		/* Lock scroll during gameplay */
+		body.gameplay-active {
+			overflow: hidden;
+			height: 100vh;
+			height: 100dvh;
+		}
+
+		body.gameplay-active #app {
+			height: 100vh;
+			height: 100dvh;
+			overflow: hidden;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 		}
 
 		/* Background decorative elements */
@@ -1091,6 +1115,173 @@
 			.btn-group { flex-direction: column; }
 			.score-details { grid-template-columns: 1fr; }
 			}
+
+			/* Small mobile screens (iPhone SE, small Android) */
+			@media (max-width: 400px) {
+			#app {
+				padding: 0.5rem;
+			}
+
+			.card {
+				padding: 0.75rem;
+				margin: 0.25rem auto;
+				box-shadow: 2px 2px 0 rgba(77, 73, 62, 0.2);
+			}
+
+			h1 { 
+				font-size: 1.5rem; 
+				letter-spacing: 0.15rem;
+				margin-bottom: 0.25rem;
+			}
+
+			h2 { 
+				font-size: 1.2rem;
+				margin-bottom: 0.75rem;
+			}
+
+			.btn-group {
+				gap: 0.5rem;
+			}
+
+			.btn, button {
+				padding: 0.6rem 1rem;
+				font-size: 0.85rem;
+			}
+			}
+
+			/* Gameplay-specific compact layout for small screens */
+			@media (max-height: 700px) and (max-width: 450px) {
+			#app {
+				padding: 0.25rem;
+			}
+
+			.card.large-card {
+				padding: 0.5rem;
+				margin: 0;
+			}
+
+			.stats-bar {
+				padding: 0.4rem;
+				gap: 0.25rem;
+			}
+
+			.stat-label {
+				font-size: 0.6rem;
+				letter-spacing: 0.02rem;
+			}
+
+			.stat-value {
+				font-size: 1rem;
+			}
+
+			.progress-container {
+				margin: 0.35rem 0;
+			}
+
+			.progress-bar {
+				height: 6px;
+			}
+
+			#timer-text {
+				font-size: 0.85rem;
+				margin-bottom: 0.35rem !important;
+			}
+
+			.playing-area {
+				gap: 0.5rem;
+			}
+
+			.kana-display {
+				font-size: 4rem;
+				min-height: 90px;
+				padding: 0.75rem;
+				border-width: 2px;
+			}
+
+			.kana-character {
+				font-size: 5rem;
+			}
+
+			.feedback {
+				font-size: 1rem;
+				bottom: 0.5rem;
+			}
+
+			.ground-line {
+				height: 3px;
+			}
+
+			.answer-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.4rem;
+			}
+
+			.answer-button {
+				padding: 0.65rem 0.5rem;
+				font-size: 0.95rem;
+				border-width: 2px;
+			}
+
+			.floating-controls {
+				top: 0.25rem;
+				right: 0.25rem;
+			}
+
+			.floating-btn {
+				padding: 0.3rem 0.6rem;
+				font-size: 0.75rem;
+			}
+			}
+
+			/* Extra small height (iPhone SE landscape or very compact) */
+			@media (max-height: 580px) {
+			.stats-bar {
+				padding: 0.3rem;
+			}
+
+			.stat-label {
+				font-size: 0.5rem;
+			}
+
+			.stat-value {
+				font-size: 0.85rem;
+			}
+
+			.progress-container {
+				margin: 0.2rem 0;
+			}
+
+			#timer-text {
+				font-size: 0.75rem;
+				margin-bottom: 0.2rem !important;
+			}
+
+			.kana-display {
+				font-size: 3.5rem;
+				min-height: 70px;
+				padding: 0.5rem;
+			}
+
+			.kana-character {
+				font-size: 4rem;
+			}
+
+			.answer-button {
+				padding: 0.5rem 0.4rem;
+				font-size: 0.85rem;
+			}
+			}
+
+			/* Touch-friendly improvements */
+			@media (pointer: coarse) {
+			.answer-button {
+				min-height: 44px;
+			}
+
+			.btn, button {
+				min-height: 44px;
+			}
+			}
 </style>
 </head>
 <body>
@@ -1605,6 +1796,9 @@
 		let timerInterval = null;
 
 		function startGame() {
+			// Add gameplay-active class to prevent scrolling on mobile
+			document.body.classList.add('gameplay-active');
+			
 			state.gameState = 'playing';
 			state.score = 0;
 			state.streak = 0;
@@ -1827,6 +2021,9 @@
 		}
 
 		function endGame() {
+			// Remove gameplay-active class to restore scrolling
+			document.body.classList.remove('gameplay-active');
+			
 			if (timerInterval) {
 				clearInterval(timerInterval);
 				timerInterval = null;
