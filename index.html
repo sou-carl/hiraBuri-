@@ -196,6 +196,370 @@
 			text-shadow: 0 0 10px rgba(255, 100, 130, 0.5);
 		}
 
+		/* GILDED NOIR THEME - Art Nouveau meets Art Deco */
+		body.gilded-theme {
+			--primary-color: #D4AF37;
+			--secondary-color: #C9A227;
+			--bg-color: #0a0a0a;
+			--bg-grid: #111111;
+			--light-text: #F5E6C8;
+			background: 
+				radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+				radial-gradient(ellipse at bottom right, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+				linear-gradient(180deg, #0a0a0a 0%, #0d0d0d 50%, #080808 100%);
+			background-attachment: fixed;
+		}
+
+		/* Art Deco geometric decorations */
+		body.gilded-theme .circle {
+			border-color: rgba(212, 175, 55, 0.2);
+			border-width: 1px;
+			box-shadow: 
+				0 0 40px rgba(212, 175, 55, 0.1),
+				inset 0 0 40px rgba(212, 175, 55, 0.05);
+		}
+
+		body.gilded-theme .line {
+			background: linear-gradient(180deg, 
+				rgba(212, 175, 55, 0.6) 0%, 
+				rgba(212, 175, 55, 0.2) 50%,
+				rgba(212, 175, 55, 0) 100%);
+			width: 1px;
+		}
+
+		body.gilded-theme .card {
+			background: linear-gradient(145deg, rgba(15, 15, 15, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			box-shadow: 
+				0 0 30px rgba(0, 0, 0, 0.8),
+				inset 0 1px 0 rgba(212, 175, 55, 0.2),
+				0 0 60px rgba(212, 175, 55, 0.05);
+			position: relative;
+		}
+
+		/* Art Deco corner accents */
+		body.gilded-theme .card::before {
+			content: '';
+			position: absolute;
+			top: -1px;
+			left: -1px;
+			right: -1px;
+			bottom: -1px;
+			background: 
+				linear-gradient(135deg, rgba(212, 175, 55, 0.5) 0%, transparent 20%),
+				linear-gradient(225deg, rgba(212, 175, 55, 0.3) 0%, transparent 20%),
+				linear-gradient(315deg, rgba(212, 175, 55, 0.5) 0%, transparent 20%),
+				linear-gradient(45deg, rgba(212, 175, 55, 0.3) 0%, transparent 20%);
+			pointer-events: none;
+			z-index: -1;
+		}
+
+		body.gilded-theme h1 {
+			color: #D4AF37;
+			text-shadow: 
+				0 0 30px rgba(212, 175, 55, 0.4),
+				2px 2px 4px rgba(0, 0, 0, 0.8),
+				0 0 60px rgba(212, 175, 55, 0.2);
+			font-weight: 400;
+		}
+
+		body.gilded-theme h2 {
+			color: #D4AF37;
+			text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+		}
+
+		body.gilded-theme .btn, 
+		body.gilded-theme button {
+			background: linear-gradient(145deg, rgba(20, 20, 20, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+			color: #D4AF37;
+			border: 1px solid rgba(212, 175, 55, 0.4);
+			text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+			box-shadow: 
+				inset 0 1px 0 rgba(212, 175, 55, 0.15),
+				0 2px 8px rgba(0, 0, 0, 0.5);
+		}
+
+		body.gilded-theme .btn::before, 
+		body.gilded-theme button::before {
+			background: linear-gradient(90deg, #D4AF37, #F5D670, #D4AF37);
+		}
+
+		body.gilded-theme .btn:hover, 
+		body.gilded-theme button:hover {
+			border-color: #D4AF37;
+			box-shadow: 
+				0 0 20px rgba(212, 175, 55, 0.4),
+				inset 0 1px 0 rgba(212, 175, 55, 0.3),
+				0 4px 15px rgba(0, 0, 0, 0.6);
+			color: #0a0a0a;
+		}
+
+		body.gilded-theme .stats-bar {
+			background: linear-gradient(90deg, 
+				rgba(212, 175, 55, 0.1) 0%, 
+				rgba(212, 175, 55, 0.05) 50%, 
+				rgba(212, 175, 55, 0.1) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+		}
+
+		body.gilded-theme .stat-label {
+			color: rgba(212, 175, 55, 0.7);
+		}
+
+		body.gilded-theme .stat-value {
+			color: #D4AF37;
+			text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+		}
+
+		body.gilded-theme .kana-display {
+			background: 
+				radial-gradient(ellipse at center, rgba(212, 175, 55, 0.08) 0%, transparent 70%),
+				linear-gradient(145deg, rgba(15, 15, 15, 0.9) 0%, rgba(5, 5, 5, 0.95) 100%);
+			border: 2px solid rgba(212, 175, 55, 0.4);
+			box-shadow: 
+				0 0 50px rgba(212, 175, 55, 0.15),
+				inset 0 0 40px rgba(0, 0, 0, 0.6),
+				0 0 100px rgba(212, 175, 55, 0.08);
+			color: #D4AF37;
+		}
+
+		body.gilded-theme .kana-character {
+			color: #D4AF37;
+			text-shadow: 
+				0 0 40px rgba(212, 175, 55, 0.6),
+				0 0 80px rgba(212, 175, 55, 0.3);
+		}
+
+		body.gilded-theme .answer-button {
+			background: linear-gradient(145deg, rgba(18, 18, 18, 0.9) 0%, rgba(8, 8, 8, 0.95) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.25);
+			color: #C9A227;
+			box-shadow: 
+				inset 0 1px 0 rgba(212, 175, 55, 0.1),
+				0 2px 6px rgba(0, 0, 0, 0.4);
+		}
+
+		body.gilded-theme .answer-button:hover {
+			border-color: #D4AF37;
+			box-shadow: 
+				0 0 25px rgba(212, 175, 55, 0.3),
+				inset 0 1px 0 rgba(212, 175, 55, 0.2);
+			color: #D4AF37;
+		}
+
+		body.gilded-theme .answer-button.correct {
+			background: linear-gradient(145deg, rgba(20, 35, 20, 0.9) 0%, rgba(15, 25, 15, 0.95) 100%);
+			border-color: #7CB342;
+			color: #9CCC65;
+			box-shadow: 
+				0 0 25px rgba(124, 179, 66, 0.4),
+				inset 0 0 20px rgba(124, 179, 66, 0.1);
+			text-shadow: 0 0 10px rgba(124, 179, 66, 0.5);
+		}
+
+		body.gilded-theme .answer-button.incorrect {
+			background: linear-gradient(145deg, rgba(35, 15, 15, 0.9) 0%, rgba(25, 10, 10, 0.95) 100%);
+			border-color: #B71C1C;
+			color: #EF5350;
+			box-shadow: 
+				0 0 25px rgba(183, 28, 28, 0.4),
+				inset 0 0 20px rgba(183, 28, 28, 0.1);
+			text-shadow: 0 0 10px rgba(239, 83, 80, 0.5);
+		}
+
+		body.gilded-theme .progress-bar {
+			background: rgba(0, 0, 0, 0.6);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.5);
+		}
+
+		body.gilded-theme .progress-fill {
+			background: linear-gradient(90deg, #8B7355, #D4AF37, #F5D670, #D4AF37, #8B7355);
+			box-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+		}
+
+		body.gilded-theme .progress-fill.green {
+			background: linear-gradient(90deg, #558B2F, #7CB342, #9CCC65, #7CB342, #558B2F);
+			box-shadow: 0 0 10px rgba(124, 179, 66, 0.5);
+		}
+
+		body.gilded-theme .tab {
+			background: linear-gradient(145deg, rgba(18, 18, 18, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.25);
+			color: #C9A227;
+		}
+
+		body.gilded-theme .tab:hover {
+			border-color: rgba(212, 175, 55, 0.5);
+			box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+		}
+
+		body.gilded-theme .tab.active {
+			background: linear-gradient(145deg, #D4AF37, #C9A227);
+			border-color: #D4AF37;
+			color: #0a0a0a;
+			text-shadow: none;
+			box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+		}
+
+		body.gilded-theme .leaderboard-entry,
+		body.gilded-theme .achievement-card {
+			background: linear-gradient(145deg, rgba(15, 15, 15, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.2);
+			box-shadow: inset 0 1px 0 rgba(212, 175, 55, 0.1);
+		}
+
+		body.gilded-theme .achievement-card.unlocked {
+			background: linear-gradient(145deg, rgba(25, 30, 20, 0.9) 0%, rgba(15, 20, 10, 0.95) 100%);
+			border-color: rgba(124, 179, 66, 0.4);
+			box-shadow: 0 0 15px rgba(124, 179, 66, 0.15);
+		}
+
+		body.gilded-theme .leaderboard-rank {
+			color: #D4AF37;
+			text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+		}
+
+		body.gilded-theme .leaderboard-rank.gold { 
+			color: #FFD700; 
+			text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+		}
+		body.gilded-theme .leaderboard-rank.silver { 
+			color: #C0C0C0; 
+			text-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
+		}
+		body.gilded-theme .leaderboard-rank.bronze { 
+			color: #CD7F32; 
+			text-shadow: 0 0 10px rgba(205, 127, 50, 0.5);
+		}
+
+		body.gilded-theme .section-selector {
+			background: linear-gradient(145deg, rgba(12, 12, 12, 0.9) 0%, rgba(8, 8, 8, 0.95) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.25);
+		}
+
+		body.gilded-theme .section-option,
+		body.gilded-theme .time-limit-select,
+		body.gilded-theme .setting-select {
+			background: rgba(5, 5, 5, 0.9);
+			border: 1px solid rgba(212, 175, 55, 0.3);
+			color: #D4AF37;
+		}
+
+		body.gilded-theme .setting-select:hover,
+		body.gilded-theme .setting-select:focus {
+			border-color: #D4AF37;
+			box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+		}
+
+		body.gilded-theme .new-record-badge {
+			background: linear-gradient(145deg, #D4AF37, #F5D670, #D4AF37);
+			border: 2px solid #FFD700;
+			color: #0a0a0a;
+			text-shadow: none;
+			box-shadow: 
+				0 0 30px rgba(212, 175, 55, 0.6),
+				0 0 60px rgba(212, 175, 55, 0.3);
+		}
+
+		body.gilded-theme .score-item {
+			background: linear-gradient(145deg, rgba(15, 15, 15, 0.9) 0%, rgba(10, 10, 10, 0.95) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.25);
+		}
+
+		body.gilded-theme .score-item-label {
+			color: rgba(212, 175, 55, 0.7);
+		}
+
+		body.gilded-theme .score-item-value {
+			color: #D4AF37;
+			text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+		}
+
+		body.gilded-theme blockquote:before {
+			border-color: rgba(212, 175, 55, 0.5);
+		}
+
+		body.gilded-theme .ground-line {
+			background: linear-gradient(90deg, #8B0000, #B71C1C, #8B0000);
+			box-shadow: 0 0 15px rgba(183, 28, 28, 0.6);
+		}
+
+		body.gilded-theme .feedback.correct {
+			color: #9CCC65;
+			text-shadow: 0 0 15px rgba(156, 204, 101, 0.6);
+		}
+
+		body.gilded-theme .feedback.incorrect {
+			color: #EF5350;
+			text-shadow: 0 0 15px rgba(239, 83, 80, 0.6);
+		}
+
+		body.gilded-theme .final-score {
+			color: #D4AF37;
+			text-shadow: 
+				0 0 30px rgba(212, 175, 55, 0.5),
+				3px 3px 6px rgba(0, 0, 0, 0.8);
+		}
+
+		body.gilded-theme .floating-btn {
+			background: linear-gradient(145deg, rgba(20, 20, 20, 0.95) 0%, rgba(10, 10, 10, 0.98) 100%);
+			border: 1px solid rgba(212, 175, 55, 0.4);
+			color: #D4AF37;
+		}
+
+		body.gilded-theme .floating-btn:hover {
+			border-color: #D4AF37;
+			box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+		}
+
+		/* Art Nouveau decorative container for gilded theme */
+		.gilded-ornament {
+			position: fixed;
+			pointer-events: none;
+			z-index: 0;
+			display: none;
+		}
+
+		body.gilded-theme .gilded-ornament {
+			display: block;
+		}
+
+		.gilded-ornament.top-left {
+			top: 0;
+			left: 0;
+			width: 200px;
+			height: 200px;
+			background: 
+				radial-gradient(ellipse at top left, rgba(212, 175, 55, 0.15) 0%, transparent 60%);
+		}
+
+		.gilded-ornament.bottom-right {
+			bottom: 0;
+			right: 0;
+			width: 250px;
+			height: 250px;
+			background: 
+				radial-gradient(ellipse at bottom right, rgba(212, 175, 55, 0.12) 0%, transparent 60%);
+		}
+
+		/* Art Deco sunburst accent */
+		.gilded-ornament.sunburst {
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 100vw;
+			height: 100vh;
+			background: 
+				repeating-conic-gradient(
+					from 0deg,
+					rgba(212, 175, 55, 0.02) 0deg 5deg,
+					transparent 5deg 10deg
+				);
+			opacity: 0.5;
+		}
+
 		/* Stars container */
 		.stars-container {
 			position: fixed;
@@ -386,27 +750,27 @@
 		}
 			
 		.line-4 {
-			height: 50%;
-			top: -25%;
-			left: 20%;
+			height: 60%;
+			bottom: -25%;
+			right: 20%;
 			transform: rotate(-35deg);
-			animation: slide-diagonal 15s ease-in-out infinite;
+			animation: slide-diagonal-reverse 15s ease-in-out infinite;
 		}
 			
 		.line-5 {
-			height: 45%;
-			top: -20%;
-			left: 15%;
+			height: 55%;
+			bottom: -20%;
+			right: 15%;
 			transform: rotate(-35deg);
-			animation: slide-diagonal 15s ease-in-out infinite;
+			animation: slide-diagonal-reverse 15s ease-in-out infinite;
 		}
 			
 		.line-6 {
-			height: 25%;
-			bottom: 100%;
-			left: 75%;
+			height: 65%;
+			bottom: -15%;
+			right: 10%;
 			transform: rotate(35deg);
-			animation: slide-diagonal 20s ease-in-out infinite reverse;
+			animation: slide-diagonal-reverse 20s ease-in-out infinite reverse;
 		}
 
 		@keyframes float-1 {
@@ -427,6 +791,17 @@
 			50% {
 			opacity: 0.2;
 			transform: rotate(-35deg) translateY(50px);
+			}
+			}
+
+		@keyframes slide-diagonal-reverse {
+			0%, 100% {
+			opacity: 0.1;
+			transform: rotate(-35deg) translateY(0);
+		}
+			50% {
+			opacity: 0.2;
+			transform: rotate(-35deg) translateY(-50px);
 			}
 			}
 
@@ -1288,6 +1663,11 @@
 		<!-- Stars background for midnight theme -->
 		<div class="stars-container" id="starsContainer"></div>
 
+		<!-- Gilded ornaments for Art Nouveau/Deco theme -->
+		<div class="gilded-ornament top-left"></div>
+		<div class="gilded-ornament bottom-right"></div>
+		<div class="gilded-ornament sunburst"></div>
+
 		<!-- Background decorative elements -->
 		<div class="circle circle-1"></div>
 		<div class="circle circle-2"></div>
@@ -1296,6 +1676,9 @@
 		<div class="line line-1"></div>
 		<div class="line line-2"></div>
 		<div class="line line-3"></div>
+		<div class="line line-4"></div>
+		<div class="line line-5"></div>
+		<div class="line line-6"></div>
 
 		<div id="app"></div>
 		<canvas id="confetti-canvas"></canvas>
@@ -1726,6 +2109,8 @@
 			if (saved === 'midnight') {
 				document.body.classList.add('midnight-theme');
 				createStars();
+			} else if (saved === 'gilded') {
+				document.body.classList.add('gilded-theme');
 			}
 		}
 
@@ -2305,7 +2690,9 @@
 		}
 
 		function renderSettings() {
-			const currentTheme = document.body.classList.contains('midnight-theme') ? 'midnight' : 'geometric';
+			let currentTheme = 'geometric';
+			if (document.body.classList.contains('midnight-theme')) currentTheme = 'midnight';
+			if (document.body.classList.contains('gilded-theme')) currentTheme = 'gilded';
 			const currentAudio = state.audioEnabled ? 'on' : 'off';
 			
 			return `
@@ -2321,6 +2708,7 @@
 								<select id="themeSelect" class="setting-select" onchange="changeTheme(this.value)">
 									<option value="geometric" ${currentTheme === 'geometric' ? 'selected' : ''}>📐 Geometric Minimalist</option>
 									<option value="midnight" ${currentTheme === 'midnight' ? 'selected' : ''}>🌙 Midnight Sky</option>
+									<option value="gilded" ${currentTheme === 'gilded' ? 'selected' : ''}>✨ Gilded Noir</option>
 								</select>
 							</div>
 							
@@ -2782,12 +3170,17 @@
 		};
 
 		window.changeTheme = (theme) => {
+			// Remove all theme classes first
+			document.body.classList.remove('midnight-theme', 'gilded-theme');
+			
 			if (theme === 'midnight') {
 				document.body.classList.add('midnight-theme');
 				createStars();
-			} else {
-				document.body.classList.remove('midnight-theme');
+			} else if (theme === 'gilded') {
+				document.body.classList.add('gilded-theme');
 			}
+			// geometric is the default, no class needed
+			
 			localStorage.setItem('kanaBlitzTheme', theme);
 		};
 
