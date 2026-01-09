@@ -133,9 +133,11 @@ body.gameplay-active #app {
 }
 
 .game-container {
+	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: center;
 	width: 100%;
 }
 
@@ -171,7 +173,7 @@ body.gameplay-active #app {
    ============================================ */
 
 h1 {
-	font-size: 3rem;
+	font-size: 2rem;
 	margin-bottom: 0.5rem;
 	font-family: 'Kaisei Decol', serif;
 	font-weight: 300;
@@ -318,7 +320,7 @@ blockquote:before {
 	font-size: 8rem;
 	font-weight: bold;
 	text-align: center;
-	min-height: 160px;
+	min-height: 220px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -379,6 +381,22 @@ blockquote:before {
 
 .feedback.incorrect {
 	color: var(--incorrect-text);
+}
+
+/* Floating Exit Button */
+.floating-controls {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 1000;
+}
+
+.floating-btn {
+	padding: 0.5rem 1rem;
+	font-size: 0.9rem;
+	background: var(--card-bg);
+	border: 2px solid var(--card-border);
+	cursor: pointer;
 }
 
 /* ============================================
@@ -690,6 +708,37 @@ blockquote:before {
 	margin-top: 1rem;
 }
 
+/* Category tabs for Seion/Dakuon/Yōon */
+.category-tabs {
+	display: flex;
+	gap: 0.5rem;
+	margin: 0.5rem 0 1rem 0;
+}
+
+.category-tab {
+	flex: 1;
+	padding: 0.75rem 0.5rem;
+	font-size: 0.9rem;
+	text-align: center;
+	line-height: 1.3;
+	min-height: auto;
+}
+
+.category-tab small {
+	font-size: 0.7rem;
+	opacity: 0.8;
+}
+
+.category-tab.active {
+	background-color: transparent;
+	color: var(--light-text);
+	border-color: var(--primary-color);
+}
+
+.category-tab.active::before {
+	width: 100%;
+}
+
 .settings-group {
 	display: flex;
 	flex-direction: column;
@@ -997,7 +1046,7 @@ body.midnight-theme .stars-container {
 	h2 { font-size: 1.5rem; }
 	.card { padding: 1.5rem; }
 	.container { padding: 0 1rem; }
-	.kana-display { font-size: 5rem; min-height: 120px; }
+	.kana-display { font-size: 5rem; min-height: 180px; }
 	.answer-grid { grid-template-columns: 1fr; }
 	.btn-group { flex-direction: column; }
 	.score-details { grid-template-columns: 1fr; }
@@ -1030,13 +1079,13 @@ body.midnight-theme .stars-container {
 	.progress-bar { height: 6px; }
 	#timer-text { font-size: 0.85rem; margin-bottom: 0.35rem !important; }
 	.playing-area { gap: 0.5rem; }
-	.kana-display { font-size: 4rem; min-height: 90px; padding: 0.75rem; border-width: 2px; }
+	.kana-display { font-size: 4rem; min-height: 130px; padding: 0.75rem; border-width: 2px; }
 	.kana-character { font-size: 5rem; }
 	.feedback { font-size: 1rem; bottom: 0.5rem; }
 	.ground-line { height: 3px; }
 	.answer-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
 	.answer-button { padding: 0.65rem 0.5rem; font-size: 0.95rem; border-width: 2px; }
-	.floating-controls { top: 0.25rem; right: 0.25rem; }
+	.floating-controls { top: 0.5rem; right: 0.5rem; }
 	.floating-btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
 }
 
@@ -1050,7 +1099,7 @@ body.midnight-theme .stars-container {
 	.stat-value { font-size: 0.85rem; }
 	.progress-container { margin: 0.2rem 0; }
 	#timer-text { font-size: 0.75rem; margin-bottom: 0.2rem !important; }
-	.kana-display { font-size: 3.5rem; min-height: 70px; padding: 0.5rem; }
+	.kana-display { font-size: 3.5rem; min-height: 100px; padding: 0.5rem; }
 	.kana-character { font-size: 4rem; }
 	.answer-button { padding: 0.5rem 0.4rem; font-size: 0.85rem; }
 }
@@ -1579,6 +1628,61 @@ body.midnight-theme .feedback.incorrect {
 				{ char: 'ぷ', romaji: 'pu' },
 				{ char: 'ぺ', romaji: 'pe' },
 				{ char: 'ぽ', romaji: 'po' }
+			],
+			ky_yoon: [
+				{ char: 'きゃ', romaji: 'kya' },
+				{ char: 'きゅ', romaji: 'kyu' },
+				{ char: 'きょ', romaji: 'kyo' }
+			],
+			sh_yoon: [
+				{ char: 'しゃ', romaji: 'sha' },
+				{ char: 'しゅ', romaji: 'shu' },
+				{ char: 'しょ', romaji: 'sho' }
+			],
+			ch_yoon: [
+				{ char: 'ちゃ', romaji: 'cha' },
+				{ char: 'ちゅ', romaji: 'chu' },
+				{ char: 'ちょ', romaji: 'cho' }
+			],
+			ny_yoon: [
+				{ char: 'にゃ', romaji: 'nya' },
+				{ char: 'にゅ', romaji: 'nyu' },
+				{ char: 'にょ', romaji: 'nyo' }
+			],
+			hy_yoon: [
+				{ char: 'ひゃ', romaji: 'hya' },
+				{ char: 'ひゅ', romaji: 'hyu' },
+				{ char: 'ひょ', romaji: 'hyo' }
+			],
+			my_yoon: [
+				{ char: 'みゃ', romaji: 'mya' },
+				{ char: 'みゅ', romaji: 'myu' },
+				{ char: 'みょ', romaji: 'myo' }
+			],
+			ry_yoon: [
+				{ char: 'りゃ', romaji: 'rya' },
+				{ char: 'りゅ', romaji: 'ryu' },
+				{ char: 'りょ', romaji: 'ryo' }
+			],
+			gy_yoon: [
+				{ char: 'ぎゃ', romaji: 'gya' },
+				{ char: 'ぎゅ', romaji: 'gyu' },
+				{ char: 'ぎょ', romaji: 'gyo' }
+			],
+			j_yoon: [
+				{ char: 'じゃ', romaji: 'ja' },
+				{ char: 'じゅ', romaji: 'ju' },
+				{ char: 'じょ', romaji: 'jo' }
+			],
+			by_yoon: [
+				{ char: 'びゃ', romaji: 'bya' },
+				{ char: 'びゅ', romaji: 'byu' },
+				{ char: 'びょ', romaji: 'byo' }
+			],
+			py_yoon: [
+				{ char: 'ぴゃ', romaji: 'pya' },
+				{ char: 'ぴゅ', romaji: 'pyu' },
+				{ char: 'ぴょ', romaji: 'pyo' }
 			]
 		};
 
@@ -1683,6 +1787,61 @@ body.midnight-theme .feedback.incorrect {
 				{ char: 'プ', romaji: 'pu' },
 				{ char: 'ペ', romaji: 'pe' },
 				{ char: 'ポ', romaji: 'po' }
+			],
+			ky_yoon: [
+				{ char: 'キャ', romaji: 'kya' },
+				{ char: 'キュ', romaji: 'kyu' },
+				{ char: 'キョ', romaji: 'kyo' }
+			],
+			sh_yoon: [
+				{ char: 'シャ', romaji: 'sha' },
+				{ char: 'シュ', romaji: 'shu' },
+				{ char: 'ショ', romaji: 'sho' }
+			],
+			ch_yoon: [
+				{ char: 'チャ', romaji: 'cha' },
+				{ char: 'チュ', romaji: 'chu' },
+				{ char: 'チョ', romaji: 'cho' }
+			],
+			ny_yoon: [
+				{ char: 'ニャ', romaji: 'nya' },
+				{ char: 'ニュ', romaji: 'nyu' },
+				{ char: 'ニョ', romaji: 'nyo' }
+			],
+			hy_yoon: [
+				{ char: 'ヒャ', romaji: 'hya' },
+				{ char: 'ヒュ', romaji: 'hyu' },
+				{ char: 'ヒョ', romaji: 'hyo' }
+			],
+			my_yoon: [
+				{ char: 'ミャ', romaji: 'mya' },
+				{ char: 'ミュ', romaji: 'myu' },
+				{ char: 'ミョ', romaji: 'myo' }
+			],
+			ry_yoon: [
+				{ char: 'リャ', romaji: 'rya' },
+				{ char: 'リュ', romaji: 'ryu' },
+				{ char: 'リョ', romaji: 'ryo' }
+			],
+			gy_yoon: [
+				{ char: 'ギャ', romaji: 'gya' },
+				{ char: 'ギュ', romaji: 'gyu' },
+				{ char: 'ギョ', romaji: 'gyo' }
+			],
+			j_yoon: [
+				{ char: 'ジャ', romaji: 'ja' },
+				{ char: 'ジュ', romaji: 'ju' },
+				{ char: 'ジョ', romaji: 'jo' }
+			],
+			by_yoon: [
+				{ char: 'ビャ', romaji: 'bya' },
+				{ char: 'ビュ', romaji: 'byu' },
+				{ char: 'ビョ', romaji: 'byo' }
+			],
+			py_yoon: [
+				{ char: 'ピャ', romaji: 'pya' },
+				{ char: 'ピュ', romaji: 'pyu' },
+				{ char: 'ピョ', romaji: 'pyo' }
 			]
 		};
 
@@ -1869,17 +2028,62 @@ body.midnight-theme .feedback.incorrect {
 			
 			const kanaData = state.kanaType === 'hiragana' ? HIRAGANA : KATAKANA;
 			
-			if (state.kanaSection === 'vowels') {
-				return kanaData.vowels;
+			// Handle 'all' section - return all kana of selected type
+			if (state.kanaSection === 'all') {
+				return Object.values(kanaData).flat();
 			}
 			
-			if (state.difficulty === 'easy') {
-				return kanaData[state.kanaSection] || kanaData.vowels;
-			} else if (state.difficulty === 'medium') {
-				return Object.values(kanaData).flat();
-			} else {
-				return Object.values(kanaData).flat();
+			// Handle 'all_seion' - return all basic/pure kana
+			if (state.kanaSection === 'all_seion') {
+				return [
+					...kanaData.vowels,
+					...kanaData.k_row,
+					...kanaData.s_row,
+					...kanaData.t_row,
+					...kanaData.n_row,
+					...kanaData.h_row,
+					...kanaData.m_row,
+					...kanaData.y_row,
+					...kanaData.r_row,
+					...kanaData.w_row
+				];
 			}
+			
+			// Handle 'all_dakuon' - return all voiced/semi-voiced kana
+			if (state.kanaSection === 'all_dakuon') {
+				return [
+					...kanaData.g_row,
+					...kanaData.z_row,
+					...kanaData.d_row,
+					...kanaData.b_row,
+					...kanaData.p_row
+				];
+			}
+			
+			// Handle 'all_yoon' - return all combination kana
+			if (state.kanaSection === 'all_yoon') {
+				return [
+					...kanaData.ky_yoon,
+					...kanaData.sh_yoon,
+					...kanaData.ch_yoon,
+					...kanaData.ny_yoon,
+					...kanaData.hy_yoon,
+					...kanaData.my_yoon,
+					...kanaData.ry_yoon,
+					...kanaData.gy_yoon,
+					...kanaData.j_yoon,
+					...kanaData.by_yoon,
+					...kanaData.py_yoon
+				];
+			}
+			
+			// Handle specific section
+			if (kanaData[state.kanaSection]) {
+				return kanaData[state.kanaSection];
+			}
+			
+			// Fallback to vowels
+			return kanaData.vowels;
 		}
 
 		function generateQuestion() {
@@ -1982,6 +2186,12 @@ body.midnight-theme .feedback.incorrect {
 			// Start the per-character timer
 			if (timerInterval) clearInterval(timerInterval);
 			timerInterval = setInterval(() => {
+				// Stop timer if not in playing state
+				if (state.gameState !== 'playing') {
+					clearInterval(timerInterval);
+					timerInterval = null;
+					return;
+				}
 				state.timeLeft -= 0.01;
 				if (state.sectionTimeLimit && state.timeRemaining !== null) {
 					// Section timer is handled separately
@@ -2024,6 +2234,15 @@ body.midnight-theme .feedback.incorrect {
 		}
 
 		function handleTimeout() {
+			// Don't process timeout if we're not in playing state
+			if (state.gameState !== 'playing') {
+				if (timerInterval) {
+					clearInterval(timerInterval);
+					timerInterval = null;
+				}
+				return;
+			}
+			
 			if (timerInterval) {
 				clearInterval(timerInterval);
 				timerInterval = null;
@@ -2046,18 +2265,25 @@ body.midnight-theme .feedback.incorrect {
 				} else {
 					state.roundsPlayed++;
 					generateQuestion();
-					render();
+					updatePlayingArea();
 					
-					// Restart timer
-					if (timerInterval) clearInterval(timerInterval);
-					timerInterval = setInterval(() => {
-						state.timeLeft -= 0.01;
-						if (state.timeLeft <= 0) {
-							state.timeLeft = 0;
-							handleTimeout();
-						}
-						updateGameTimer();
-					}, 10);
+					// Restart timer only if still playing
+					if (state.gameState === 'playing') {
+						if (timerInterval) clearInterval(timerInterval);
+						timerInterval = setInterval(() => {
+							if (state.gameState !== 'playing') {
+								clearInterval(timerInterval);
+								timerInterval = null;
+								return;
+							}
+							state.timeLeft -= 0.01;
+							if (state.timeLeft <= 0) {
+								state.timeLeft = 0;
+								handleTimeout();
+							}
+							updateGameTimer();
+						}, 10);
+					}
 				}
 			}, 1500);
 		}
@@ -2129,18 +2355,25 @@ body.midnight-theme .feedback.incorrect {
 						endGame();
 					} else {
 						generateQuestion();
-						render();
+						updatePlayingArea();
 						
-						// Restart timer
-						if (timerInterval) clearInterval(timerInterval);
-						timerInterval = setInterval(() => {
-							state.timeLeft -= 0.01;
-							if (state.timeLeft <= 0) {
-								state.timeLeft = 0;
-								handleTimeout();
-							}
-							updateGameTimer();
-						}, 10);
+						// Restart timer only if still playing
+						if (state.gameState === 'playing') {
+							if (timerInterval) clearInterval(timerInterval);
+							timerInterval = setInterval(() => {
+								if (state.gameState !== 'playing') {
+									clearInterval(timerInterval);
+									timerInterval = null;
+									return;
+								}
+								state.timeLeft -= 0.01;
+								if (state.timeLeft <= 0) {
+									state.timeLeft = 0;
+									handleTimeout();
+								}
+								updateGameTimer();
+							}, 10);
+						}
 					}
 				}, 1000);
 			} else {
@@ -2160,18 +2393,25 @@ body.midnight-theme .feedback.incorrect {
 					} else {
 						state.roundsPlayed++;
 						generateQuestion();
-						render();
+						updatePlayingArea();
 						
-						// Restart timer
-						if (timerInterval) clearInterval(timerInterval);
-						timerInterval = setInterval(() => {
-							state.timeLeft -= 0.01;
-							if (state.timeLeft <= 0) {
-								state.timeLeft = 0;
-								handleTimeout();
-							}
-							updateGameTimer();
-						}, 10);
+						// Restart timer only if still playing
+						if (state.gameState === 'playing') {
+							if (timerInterval) clearInterval(timerInterval);
+							timerInterval = setInterval(() => {
+								if (state.gameState !== 'playing') {
+									clearInterval(timerInterval);
+									timerInterval = null;
+									return;
+								}
+								state.timeLeft -= 0.01;
+								if (state.timeLeft <= 0) {
+									state.timeLeft = 0;
+									handleTimeout();
+								}
+								updateGameTimer();
+							}, 10);
+						}
 					}
 				}, 1000);
 			}
@@ -2442,18 +2682,15 @@ body.midnight-theme .feedback.incorrect {
 							<h1>ひらブリ！<br>「Hira Buri!」</h1>
 						</div>
 						
-						<div class="btn-group">
+						<div class="btn-group" style="flex-direction: column;">
 							<button class="btn btn-primary" onclick="showGameMode()">
-								はじめる<br>
-								「Play」<br>
+								はじめる<br>「Play」
 							</button>
 							<button class="btn btn-secondary" onclick="showStats()">
-								ブリログ<br>
-								「Brilliance Log」<br>
+								ブリログ<br>「Brilliance Log」
 							</button>
 							<button class="btn btn-gray" onclick="showSettings()">
-								せってい<br>
-								「Settings」<br>
+								せってい<br>「Settings」
 							</button>
 						</div>
 					</div>
@@ -2506,95 +2743,76 @@ body.midnight-theme .feedback.incorrect {
 				<div class="game-container">
                     <div class="card large-card">
 						<div class="h1">
-							<h1>ブリチャレンジ！<br>Buri Challenge!</h1>
+							<h1>ブリチャレンジえらぶ！<br>→ Choose Buri!</h1>
 						</div>
                         
-                        <div class="option-group">
-                            <label class="option-label">
-                                → Choose Your Blitz<br>
-                            </label>
-                            <button class="btn btn-primary section-start-btn"onclick= "startComprehensiveChallenge()">
-                                ブリコンプリート！<br>Hiragana × Katakana<br>
-                                <small style="font-size: 0.8rem; opacity: 0.9; margin-top: 0.25rem; display: block;">「Zenbu Buri! All 142 Characters」</small>
-                            </button>
-                        </div>
-                        
-                        <div class="option-group">
-                            <label class="option-label">
-                            </label>
-						<div class="option-group">							
-							<div class="section-selector">
-								<label class="time-limit-label">ひらブリ！えらぶセクション<br>「Select Section」:</label>
-								<select id="hiraganaSection" class="section-option" style="width: 100%; margin-bottom: 0.5rem;">
-									<option value="vowels">Vowels (あ, い, う, え, お)</option>
-									<option value="k_row">K-row (か, き, く, け, こ)</option>
-									<option value="s_row">S-row (さ, し, す, せ, そ)</option>
-									<option value="t_row">T-row (た, ち, つ, て, と)</option>
-									<option value="n_row">N-row (な, に, ぬ, ね, の)</option>
-									<option value="h_row">H-row (は, ひ, ふ, へ, ほ)</option>
-									<option value="m_row">M-row (ま, み, む, め, も)</option>
-									<option value="y_row">Y-row (や, ゆ, よ)</option>
-									<option value="r_row">R-row (ら, り, る, れ, ろ)</option>
-									<option value="w_row">W-row (わ, を, ん)</option>
-									<option value="g_row">G-row (が, ぎ, ぐ, げ, ご)</option>
-									<option value="z_row">Z-row (ざ, じ, ず, ぜ, ぞ)</option>
-									<option value="d_row">D-row (だ, ぢ, づ, で, ど)</option>
-									<option value="b_row">B-row (ば, び, ぶ, べ, ぼ)</option>
-									<option value="p_row">P-row (ぱ, ぴ, ぷ, ぺ, ぽ)</option>
-									<option value="all_hiragana">全ブリ！「Zen Buri!」(All Hiragana)</option>
-								</select>
-								
-								<div class="time-limit-group">
-									<label class="time-limit-label">ブリタイム<br>「Time Limit」:</label>
-									<select id="hiraganaTimeLimit" class="time-limit-select">
-										<option value="unlimited">Unlimited</option>
-										<option value="30">30 seconds</option>
-										<option value="60" selected>60 seconds</option>
-										<option value="120">2 minutes</option>
-										<option value="300">5 minutes</option>
-									</select>
-								</div>
-								
-								<button class="btn btn-primary section-start-btn" onclick="startSectionWithTimeLimit('hiragana')">
-									はじブリ！(ㆆ ᴗ ㆆ)<br>「Start Blitz!」
+						<div class="section-selector">
+							<label class="time-limit-label">カナえらぶ<br>「Select Kana」:</label>
+							<select id="kanaType" class="section-option" style="width: 100%; margin-bottom: 1rem;" onchange="updateSectionOptions()">
+								<option value="hiragana">ひらがな Hiragana</option>
+								<option value="katakana">カタカナ Katakana</option>
+							</select>
+							
+							<label class="time-limit-label">カテゴリえらぶ<br>「Select Category」:</label>
+							<div class="category-tabs">
+								<button class="category-tab active" data-category="seion" onclick="selectCategory('seion')">
+									清音<br><small>Seion</small>
+								</button>
+								<button class="category-tab" data-category="dakuon" onclick="selectCategory('dakuon')">
+									濁音<br><small>Dakuon</small>
+								</button>
+								<button class="category-tab" data-category="yoon" onclick="selectCategory('yoon')">
+									拗音<br><small>Yōon</small>
 								</button>
 							</div>
-							<div class="section-selector">
-								<label class="time-limit-label">カタブリ！えらぶセクション<br>「Select Section」:</label>
-								<select id="katakanaSection" class="section-option" style="width: 100%; margin-bottom: 0.5rem;">
-									<option value="vowels">Vowels (ア, イ, ウ, エ, オ)</option>
-									<option value="k_row">K-row (カ, キ, ク, ケ, コ)</option>
-									<option value="s_row">S-row (サ, シ, ス, セ, ソ)</option>
-									<option value="t_row">T-row (タ, チ, ツ, テ, ト)</option>
-									<option value="n_row">N-row (ナ, ニ, ヌ, ネ, ノ)</option>
-									<option value="h_row">H-row (ハ, ヒ, フ, ヘ, ホ)</option>
-									<option value="m_row">M-row (マ, ミ, ム, メ, モ)</option>
-									<option value="y_row">Y-row (ヤ, ユ, ヨ)</option>
-									<option value="r_row">R-row (ラ, リ, ル, レ, ロ)</option>
-									<option value="w_row">W-row (ワ, ヲ, ン)</option>
-									<option value="g_row">G-row (ガ, ギ, グ, ゲ, ゴ)</option>
-									<option value="z_row">Z-row (ザ, ジ, ズ, ゼ, ゾ)</option>
-									<option value="d_row">D-row (ダ, ヂ, ヅ, デ, ド)</option>
-									<option value="b_row">B-row (バ, ビ, ブ, ベ, ボ)</option>
-									<option value="p_row">P-row (パ, ピ, プ, ペ, ポ)</option>
-									<option value="all_katakana">全ブリ！「Zen Buri!」(All Katakana)</option>
+							
+							<label class="time-limit-label" style="margin-top: 1rem;">セクションえらぶ<br>「Select Section」:</label>
+							<select id="kanaSection" class="section-option" style="width: 100%; margin-bottom: 0.5rem;">
+								<option value="vowels">Vowels (あ, い, う, え, お)</option>
+								<option value="k_row">K-row (か, き, く, け, こ)</option>
+								<option value="s_row">S-row (さ, し, す, せ, そ)</option>
+								<option value="t_row">T-row (た, ち, つ, て, と)</option>
+								<option value="n_row">N-row (な, に, ぬ, ね, の)</option>
+								<option value="h_row">H-row (は, ひ, ふ, へ, ほ)</option>
+								<option value="m_row">M-row (ま, み, む, め, も)</option>
+								<option value="y_row">Y-row (や, ゆ, よ)</option>
+								<option value="r_row">R-row (ら, り, る, れ, ろ)</option>
+								<option value="w_row">W-row (わ, を, ん)</option>
+								<option value="all_seion">全清音「All Seion」</option>
+							</select>
+							
+							<div class="time-limit-group">
+								<label class="time-limit-label">ブリタイム<br>「Time Limit」:</label>
+								<select id="timeLimit" class="time-limit-select">
+									<option value="unlimited">Unlimited</option>
+									<option value="30">30 seconds</option>
+									<option value="60" selected>60 seconds</option>
+									<option value="120">2 minutes</option>
+									<option value="300">5 minutes</option>
 								</select>
-								
-								<div class="time-limit-group">
-									<label class="time-limit-label">ブリタイム<br>「Time Limit」:</label>
-									<select id="katakanaTimeLimit" class="time-limit-select">
-										<option value="unlimited">Unlimited</option>
-										<option value="30">30 seconds</option>
-										<option value="60" selected>60 seconds</option>
-										<option value="120">2 minutes</option>
-										<option value="300">5 minutes</option>
-									</select>
-								</div>
-								
-								<button class="btn btn-primary section-start-btn" onclick="startSectionWithTimeLimit('katakana')">
-									(ㆆ ᴗ ㆆ)はじブリ！<br>「Start Blitz!」
-								</button>
 							</div>
+							
+							<button class="btn btn-primary section-start-btn" onclick="startKanaBlitz()">
+								はじブリ！(ㆆ ᴗ ㆆ)<br>「Start Blitz!」
+							</button>
+						</div>
+						
+						<div style="text-align: center; margin: 1.5rem 0; color: var(--secondary-color); font-size: 0.9rem;">
+							<br>╭( ๐ _๐)╮—or </br>ブリコンプリートチャレンジ！<br>「Buri Complete Challenge!」<br>—(; ꒪ö꒪)
+						</div>
+						
+						<div class="section-selector">
+							<label class="time-limit-label">全部カナえらぶ<br>「All Kana Select」:</label>
+							<select id="zenbuBuri" class="section-option" style="width: 100%; margin-bottom: 0.5rem;">
+								<option value="">— Select All —</option>
+								<option value="all_hiragana">全ひらがな (All Hiragana)</option>
+								<option value="all_katakana">全カタカナ (All Katakana)</option>
+								<option value="comprehensive">全部 (All Hiragana × Katakana)</option>
+							</select>
+							
+							<button class="btn btn-primary section-start-btn" onclick="startZenbuBuri()">
+								(ㆆ ᴗ ㆆ)はじ全部ブリ！<br>「Start Zenbu Buri!」
+							</button>
 						</div>
 						
 						<div class="btn-group mt-4">
@@ -2622,15 +2840,15 @@ body.midnight-theme .feedback.incorrect {
 						<div class="stats-bar">
 							<div class="stat">
 								<div class="stat-label">SCORE</div>
-								<div class="stat-value">${state.score}</div>
+								<div class="stat-value" id="score-value">${state.score}</div>
 							</div>
 							<div class="stat">
 								<div class="stat-label">STREAK</div>
-								<div class="stat-value">${state.streak}</div>
+								<div class="stat-value" id="streak-value">${state.streak}</div>
 							</div>
 							<div class="stat">
 								<div class="stat-label">ROUND</div>
-								<div class="stat-value">${state.roundsPlayed}/${maxRounds}</div>
+								<div class="stat-value" id="round-value">${state.roundsPlayed}/${maxRounds}</div>
 							</div>
 							${state.timeRemaining !== null ? `
 								<div class="stat">
@@ -2642,7 +2860,7 @@ body.midnight-theme .feedback.incorrect {
 						
 						<div class="progress-container">
 							<div class="progress-bar">
-								<div class="progress-fill" style="width: ${progress}%"></div>
+								<div class="progress-fill" id="progress-fill" style="width: ${progress}%"></div>
 							</div>
 						</div>
 						
@@ -2654,8 +2872,8 @@ body.midnight-theme .feedback.incorrect {
 						<div id="timer-text" class="text-center" style="margin-bottom: 1rem; font-weight: bold;">${state.timeLeft.toFixed(2)}s</div>
 						
 						<div class="playing-area">
-							<div class="kana-display">
-								<div class="kana-character kana-text falling random-font" 
+							<div class="kana-display" id="kana-display">
+								<div class="kana-character kana-text falling random-font" id="kana-character"
 									 style="font-family: ${state.randomFont}; animation-duration: ${animationDuration}s; animation-play-state: ${state.timeLeft > 0 ? 'running' : 'paused'}">
 									${kanaChar}
 								</div>
@@ -2663,7 +2881,7 @@ body.midnight-theme .feedback.incorrect {
 								<div id="feedback" class="feedback"></div>
 							</div>
 							
-							<div class="answer-grid">
+							<div class="answer-grid" id="answer-grid">
 								${state.options.map(option => `
 									<button class="answer-button" 
 											data-answer="${option}"
@@ -2678,13 +2896,77 @@ body.midnight-theme .feedback.incorrect {
 			`;
 		}
 
+		// Update only the dynamic elements without full re-render (prevents flicker)
+		function updatePlayingArea() {
+			state.roundStartTime = Date.now();
+			const maxRounds = state.difficulty === 'hard' ? 20 : state.difficulty === 'medium' ? 30 : 40;
+			const progress = (state.roundsPlayed / maxRounds) * 100;
+			const animationDuration = DIFFICULTY[state.difficulty].time;
+			
+			// Update stats
+			const scoreEl = document.getElementById('score-value');
+			const streakEl = document.getElementById('streak-value');
+			const roundEl = document.getElementById('round-value');
+			const progressEl = document.getElementById('progress-fill');
+			
+			if (scoreEl) scoreEl.textContent = state.score;
+			if (streakEl) streakEl.textContent = state.streak;
+			if (roundEl) roundEl.textContent = `${state.roundsPlayed}/${maxRounds}`;
+			if (progressEl) progressEl.style.width = `${progress}%`;
+			
+			// Update kana display
+			const kanaDisplay = document.getElementById('kana-display');
+			const kanaCharacter = document.getElementById('kana-character');
+			
+			if (kanaDisplay) {
+				kanaDisplay.classList.remove('correct', 'incorrect');
+			}
+			
+			if (kanaCharacter) {
+				// Reset animation by cloning and replacing
+				const newKana = kanaCharacter.cloneNode(false);
+				newKana.id = 'kana-character';
+				newKana.className = 'kana-character kana-text falling random-font';
+				newKana.style.fontFamily = state.randomFont;
+				newKana.style.animationDuration = `${animationDuration}s`;
+				newKana.style.animationPlayState = 'running';
+				newKana.textContent = state.currentChar;
+				kanaCharacter.parentNode.replaceChild(newKana, kanaCharacter);
+			}
+			
+			// Update feedback
+			const feedback = document.getElementById('feedback');
+			if (feedback) {
+				feedback.textContent = '';
+				feedback.className = 'feedback';
+			}
+			
+			// Update answer buttons
+			const answerGrid = document.getElementById('answer-grid');
+			if (answerGrid) {
+				answerGrid.innerHTML = state.options.map(option => `
+					<button class="answer-button" 
+							data-answer="${option}"
+							onclick="checkAnswer('${option}')">
+						${option}
+					</button>
+				`).join('');
+			}
+			
+			// Reset timer bar
+			const timerBar = document.getElementById('timer-bar');
+			const timerText = document.getElementById('timer-text');
+			if (timerBar) timerBar.style.width = '100%';
+			if (timerText) timerText.textContent = `${state.timeLeft.toFixed(2)}s`;
+		}
+
 		function renderGameOver() {
 			const avgTime = state.roundsPlayed > 0 ? (state.totalTime / state.roundsPlayed).toFixed(2) : '0.00';
 			
 			const template = `
 				<div class="game-container">
 					<div class="card large-card game-over-container">
-						<h2 class="gradient-text">試合終了！<br>「Shiai Shūryō!」<br><small>Game Over</small></h2>
+						<h2 class="gradient-text">ブリ終了！<br><small>「Game Over」<br>༎ຶ‿༎ຶ</small></h2>
 						
 						${state.isNewRecord ? `
 							<div class="new-record-badge">
@@ -2713,10 +2995,10 @@ body.midnight-theme .feedback.incorrect {
 							</div>
 						</div>
 						
-						<div class="btn-group">
-							<button class="btn btn-primary" onclick="showGameMode()">Play Again – もう一度</button>
-							<button class="btn btn-secondary" onclick="showStats()">Leaderboard – ブリボード</button>
-							<button class="btn btn-gray" onclick="backToMenu()">Menu – メニュー</button>
+						<div class="btn-group" style="flex-direction: column;">
+							<button class="btn btn-primary" onclick="showGameMode()">もう一ブリ！<br><small>「Play Again」</small></button>
+							<button class="btn btn-secondary" onclick="showStats()">ブリログ<br><small>「BuriLog」</small></button>
+							<button class="btn btn-gray" onclick="backToMenu()">メイン画面<br><small>「Main Menu」</small></button>
 						</div>
 					</div>
 				</div>
@@ -2855,11 +3137,11 @@ body.midnight-theme .feedback.incorrect {
 			app.innerHTML = html;
 		}
 
-		<!--EVENT HANDLERS (attached to window for onclick)-->
+		// ===== EVENT HANDLERS (attached to window for onclick) =====
 		window.setKanaAndDifficulty = (kanaType, difficulty) => {
 			state.kanaType = kanaType;
 			state.difficulty = difficulty;
-			state.kanaSection = 'vowels';  <!--Reset to default-->
+			state.kanaSection = 'vowels';  // Reset to default
 			startGame();
 		};
 
@@ -2870,40 +3152,184 @@ body.midnight-theme .feedback.incorrect {
 			startGame();
 		};
 
-		window.startSectionWithTimeLimit = (kanaType) => {
-		const sectionSelect = document.getElementById(kanaType + 'Section');
-		const timeLimitSelect = document.getElementById(kanaType + 'TimeLimit');
-		const section = sectionSelect.value;
-		const timeLimit = timeLimitSelect.value;
-
-		<!--Handle zenBuri! dropdown options-->
-		if (section === 'all_hiragana') {
-		state.kanaType = 'hiragana';
-		state.difficulty = 'medium';
-		state.kanaSection = 'vowels';
-		state.sectionTimeLimit = null;
-		startGame();
-		return;
-		}
-		if (section === 'all_katakana') {
-		state.kanaType = 'katakana';
-		state.difficulty = 'medium';
-		state.kanaSection = 'vowels';
-		state.sectionTimeLimit = null;
-		startGame();
-		return;
-		}
-
-		state.kanaType = kanaType;
-		state.difficulty = 'easy';
-		state.kanaSection = section;
-		state.sectionTimeLimit = timeLimit === 'unlimited' ? null : parseInt(timeLimit);
-		startGame();
+		// Section options data organized by category for each kana type
+		const SECTION_OPTIONS = {
+			hiragana: {
+				seion: [
+					{ value: 'vowels', label: 'Vowels (あ, い, う, え, お)' },
+					{ value: 'k_row', label: 'K-row (か, き, く, け, こ)' },
+					{ value: 's_row', label: 'S-row (さ, し, す, せ, そ)' },
+					{ value: 't_row', label: 'T-row (た, ち, つ, て, と)' },
+					{ value: 'n_row', label: 'N-row (な, に, ぬ, ね, の)' },
+					{ value: 'h_row', label: 'H-row (は, ひ, ふ, へ, ほ)' },
+					{ value: 'm_row', label: 'M-row (ま, み, む, め, も)' },
+					{ value: 'y_row', label: 'Y-row (や, ゆ, よ)' },
+					{ value: 'r_row', label: 'R-row (ら, り, る, れ, ろ)' },
+					{ value: 'w_row', label: 'W-row (わ, を, ん)' },
+					{ value: 'all_seion', label: '全清音「All Seion」' }
+				],
+				dakuon: [
+					{ value: 'g_row', label: 'G-row (が, ぎ, ぐ, げ, ご)' },
+					{ value: 'z_row', label: 'Z-row (ざ, じ, ず, ぜ, ぞ)' },
+					{ value: 'd_row', label: 'D-row (だ, ぢ, づ, で, ど)' },
+					{ value: 'b_row', label: 'B-row (ば, び, ぶ, べ, ぼ)' },
+					{ value: 'p_row', label: 'P-row (ぱ, ぴ, ぷ, ぺ, ぽ)' },
+					{ value: 'all_dakuon', label: '全濁音「All Dakuon」' }
+				],
+				yoon: [
+					{ value: 'ky_yoon', label: 'KY (きゃ, きゅ, きょ)' },
+					{ value: 'sh_yoon', label: 'SH (しゃ, しゅ, しょ)' },
+					{ value: 'ch_yoon', label: 'CH (ちゃ, ちゅ, ちょ)' },
+					{ value: 'ny_yoon', label: 'NY (にゃ, にゅ, にょ)' },
+					{ value: 'hy_yoon', label: 'HY (ひゃ, ひゅ, ひょ)' },
+					{ value: 'my_yoon', label: 'MY (みゃ, みゅ, みょ)' },
+					{ value: 'ry_yoon', label: 'RY (りゃ, りゅ, りょ)' },
+					{ value: 'gy_yoon', label: 'GY (ぎゃ, ぎゅ, ぎょ)' },
+					{ value: 'j_yoon', label: 'J (じゃ, じゅ, じょ)' },
+					{ value: 'by_yoon', label: 'BY (びゃ, びゅ, びょ)' },
+					{ value: 'py_yoon', label: 'PY (ぴゃ, ぴゅ, ぴょ)' },
+					{ value: 'all_yoon', label: '全拗音「All Yōon」' }
+				]
+			},
+			katakana: {
+				seion: [
+					{ value: 'vowels', label: 'Vowels (ア, イ, ウ, エ, オ)' },
+					{ value: 'k_row', label: 'K-row (カ, キ, ク, ケ, コ)' },
+					{ value: 's_row', label: 'S-row (サ, シ, ス, セ, ソ)' },
+					{ value: 't_row', label: 'T-row (タ, チ, ツ, テ, ト)' },
+					{ value: 'n_row', label: 'N-row (ナ, ニ, ヌ, ネ, ノ)' },
+					{ value: 'h_row', label: 'H-row (ハ, ヒ, フ, ヘ, ホ)' },
+					{ value: 'm_row', label: 'M-row (マ, ミ, ム, メ, モ)' },
+					{ value: 'y_row', label: 'Y-row (ヤ, ユ, ヨ)' },
+					{ value: 'r_row', label: 'R-row (ラ, リ, ル, レ, ロ)' },
+					{ value: 'w_row', label: 'W-row (ワ, ヲ, ン)' },
+					{ value: 'all_seion', label: '全清音「All Seion」' }
+				],
+				dakuon: [
+					{ value: 'g_row', label: 'G-row (ガ, ギ, グ, ゲ, ゴ)' },
+					{ value: 'z_row', label: 'Z-row (ザ, ジ, ズ, ゼ, ゾ)' },
+					{ value: 'd_row', label: 'D-row (ダ, ヂ, ヅ, デ, ド)' },
+					{ value: 'b_row', label: 'B-row (バ, ビ, ブ, ベ, ボ)' },
+					{ value: 'p_row', label: 'P-row (パ, ピ, プ, ペ, ポ)' },
+					{ value: 'all_dakuon', label: '全濁音「All Dakuon」' }
+				],
+				yoon: [
+					{ value: 'ky_yoon', label: 'KY (キャ, キュ, キョ)' },
+					{ value: 'sh_yoon', label: 'SH (シャ, シュ, ショ)' },
+					{ value: 'ch_yoon', label: 'CH (チャ, チュ, チョ)' },
+					{ value: 'ny_yoon', label: 'NY (ニャ, ニュ, ニョ)' },
+					{ value: 'hy_yoon', label: 'HY (ヒャ, ヒュ, ヒョ)' },
+					{ value: 'my_yoon', label: 'MY (ミャ, ミュ, ミョ)' },
+					{ value: 'ry_yoon', label: 'RY (リャ, リュ, リョ)' },
+					{ value: 'gy_yoon', label: 'GY (ギャ, ギュ, ギョ)' },
+					{ value: 'j_yoon', label: 'J (ジャ, ジュ, ジョ)' },
+					{ value: 'by_yoon', label: 'BY (ビャ, ビュ, ビョ)' },
+					{ value: 'py_yoon', label: 'PY (ピャ, ピュ, ピョ)' },
+					{ value: 'all_yoon', label: '全拗音「All Yōon」' }
+				]
+			}
 		};
 
+		// Track current category
+		let currentCategory = 'seion';
 
+		window.selectCategory = (category) => {
+			currentCategory = category;
+			
+			// Update tab active states
+			document.querySelectorAll('.category-tab').forEach(tab => {
+				tab.classList.remove('active');
+				if (tab.dataset.category === category) {
+					tab.classList.add('active');
+				}
+			});
+			
+			// Update section dropdown
+			updateSectionDropdown();
+		};
 
-		// ===== COMPREHENSIVE CHALLENGE =====
+		function updateSectionDropdown() {
+			const kanaTypeSelect = document.getElementById('kanaType');
+			const sectionSelect = document.getElementById('kanaSection');
+			const selectedType = kanaTypeSelect.value;
+			
+			// Clear current options
+			sectionSelect.innerHTML = '';
+			
+			// Add new options based on selected kana type and category
+			const options = SECTION_OPTIONS[selectedType][currentCategory];
+			options.forEach(option => {
+				const opt = document.createElement('option');
+				opt.value = option.value;
+				opt.textContent = option.label;
+				sectionSelect.appendChild(opt);
+			});
+		}
+
+		window.updateSectionOptions = () => {
+			// Reset to seion category when kana type changes
+			currentCategory = 'seion';
+			document.querySelectorAll('.category-tab').forEach(tab => {
+				tab.classList.remove('active');
+				if (tab.dataset.category === 'seion') {
+					tab.classList.add('active');
+				}
+			});
+			updateSectionDropdown();
+		};
+
+		window.startKanaBlitz = () => {
+			const kanaTypeSelect = document.getElementById('kanaType');
+			const sectionSelect = document.getElementById('kanaSection');
+			const timeLimitSelect = document.getElementById('timeLimit');
+			
+			const kanaType = kanaTypeSelect.value;
+			const section = sectionSelect.value;
+			const timeLimit = timeLimitSelect.value;
+			
+			state.kanaType = kanaType;
+			state.kanaSection = section;
+			state.sectionTimeLimit = timeLimit === 'unlimited' ? null : parseInt(timeLimit);
+			
+			// Set difficulty based on section
+			if (section === 'all') {
+				state.difficulty = 'medium';
+			} else {
+				state.difficulty = 'easy';
+			}
+			
+			startGame();
+		};
+
+		// ===== ZENBU BURI (ALL KANA) =====
+		window.startZenbuBuri = () => {
+			const zenbuSelect = document.getElementById('zenbuBuri');
+			const selection = zenbuSelect.value;
+			
+			if (!selection) {
+				alert('Please select an option from Zenbu Buri!');
+				return;
+			}
+			
+			if (selection === 'all_hiragana') {
+				state.kanaType = 'hiragana';
+				state.kanaSection = 'all';
+				state.difficulty = 'medium';
+			} else if (selection === 'all_katakana') {
+				state.kanaType = 'katakana';
+				state.kanaSection = 'all';
+				state.difficulty = 'medium';
+			} else if (selection === 'comprehensive') {
+				state.kanaType = 'comprehensive';
+				state.kanaSection = 'all';
+				state.difficulty = 'hard';
+			}
+			
+			state.sectionTimeLimit = null;
+			startGame();
+		};
+
+		// Keep for backwards compatibility
 		window.startComprehensiveChallenge = () => {
 			state.kanaType = 'comprehensive';
 			state.difficulty = 'hard';
@@ -2982,7 +3408,7 @@ body.midnight-theme .feedback.incorrect {
 
 
 
-		<!--Initialize-->
+		// ===== INITIALIZE =====
 		loadAchievementData();
 		loadAudioPreference();
 		loadThemePreference();
