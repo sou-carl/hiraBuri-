@@ -1507,7 +1507,6 @@ body.midnight-theme .feedback.incorrect {
 			isNewRecord: false,
 			
 			unlockedAchievements: [],
-			sectionStats: {},
 			totalRoundsPlayed: 0,
 			hiraganaRoundsPlayed: 0,
 			katakanaRoundsPlayed: 0,
@@ -1846,87 +1845,83 @@ body.midnight-theme .feedback.incorrect {
 			]
 		};
 
-	// ===== ACHIEVEMENTS =====
-	const ACHIEVEMENTS = {
-		first_steps: { id: 'first_steps', name: '🎯 First Steps', desc: 'Complete your first round', icon: '👣'},	
-		dedication: {id: 'dedication', name: '💪 Dedication', desc: 'Play 10 rounds', icon: '🔥'},	
-		veteran: {id: 'veteran', name: '🏆 Veteran', desc: 'Play 50 rounds', icon: '⭐'},	
-		master: {id: 'master', name: '👑 Master', desc: 'Play 100 rounds', icon: '🎓'},
-		streak_5: {id: 'streak_5', name: '🔥 Hot Streak', desc: 'Get a 5 answer streak', icon: '🌟'},
-		streak_10: {id: 'streak_10', name: '⚡ Lightning Round', desc: 'Get a 10 answer streak', icon: '⚡'},
-		streak_20: {id: 'streak_20', name: '🌪️ Unstoppable', desc: 'Get a 20 answer streak', icon: '💫'},
-		hiragana_hero: {id: 'hiragana_hero', name: '🌸 Hiragana Hero', desc: 'Play 10 Hiragana rounds', icon: '🇯🇵'},
-		katakana_knight: {id: 'katakana_knight', name: '⚔️ Katakana Knight' , desc: 'Play 10 Katakana rounds', icon: '👑'},
-		both_scripts: {id: 'both_scripts', name: '🎭 Kana Sorcerer', desc: 'Play both Hiragana and Katakana', icon: '🌏'},
-		hard_mode: {id: 'hard_mode', name: '💀 Hard Mode', desc: 'Complete 5 rounds on Hard difficulty', icon: '🔥'},
-		// Section Mastery Achievements - Hiragana Seion
-		hiragana_vowels_master: { id: 'hiragana_vowels_master', name: '🌸 Vowels Master', desc: 'Hiragana Vowels avg under 2s', icon: 'あ' },
-		hiragana_k_row_master: { id: 'hiragana_k_row_master', name: '🌸 K-Row Master', desc: 'Hiragana K-row avg under 2s', icon: 'か' },
-		hiragana_s_row_master: { id: 'hiragana_s_row_master', name: '🌸 S-Row Master', desc: 'Hiragana S-row avg under 2s', icon: 'さ' },
-		hiragana_t_row_master: { id: 'hiragana_t_row_master', name: '🌸 T-Row Master', desc: 'Hiragana T-row avg under 2s', icon: 'た' },
-		hiragana_n_row_master: { id: 'hiragana_n_row_master', name: '🌸 N-Row Master', desc: 'Hiragana N-row avg under 2s', icon: 'な' },
-		hiragana_h_row_master: { id: 'hiragana_h_row_master', name: '🌸 H-Row Master', desc: 'Hiragana H-row avg under 2s', icon: 'は' },
-		hiragana_m_row_master: { id: 'hiragana_m_row_master', name: '🌸 M-Row Master', desc: 'Hiragana M-row avg under 2s', icon: 'ま' },
-		hiragana_y_row_master: { id: 'hiragana_y_row_master', name: '🌸 Y-Row Master', desc: 'Hiragana Y-row avg under 2s', icon: 'や' },
-		hiragana_r_row_master: { id: 'hiragana_r_row_master', name: '🌸 R-Row Master', desc: 'Hiragana R-row avg under 2s', icon: 'ら' },
-		hiragana_w_row_master: { id: 'hiragana_w_row_master', name: '🌸 W-Row Master', desc: 'Hiragana W-row avg under 2s', icon: 'わ' },
+		// ===== ACHIEVEMENTS =====
+		const ACHIEVEMENTS = {
+			first_steps: {
+				id: 'first_steps',
+				name: '🎯 First Steps',
+				desc: 'Complete your first round',
+				icon: '👣'
+			},
+			dedication: {
+				id: 'dedication',
+				name: '💪 Dedication',
+				desc: 'Play 10 rounds',
+				icon: '🔥'
+			},
+			veteran: {
+				id: 'veteran',
+				name: '🏆 Veteran',
+				desc: 'Play 50 rounds',
+				icon: '⭐'
+			},
+			master: {
+				id: 'master',
+				name: '👑 Master',
+				desc: 'Play 100 rounds',
+				icon: '🎓'
+			},
+			streak_5: {
+				id: 'streak_5',
+				name: '🔥 Hot Streak',
+				desc: 'Get a 5 answer streak',
+				icon: '🌟'
+			},
+			streak_10: {
+				id: 'streak_10',
+				name: '⚡ Lightning Round',
+				desc: 'Get a 10 answer streak',
+				icon: '⚡'
+			},
+			streak_20: {
+				id: 'streak_20',
+				name: '🌪️ Unstoppable',
+				desc: 'Get a 20 answer streak',
+				icon: '💫'
+			},
+			hiragana_hero: {
+				id: 'hiragana_hero',
+				name: '🌸 Hiragana Hero',
+				desc: 'Play 10 Hiragana rounds',
+				icon: '🇯🇵'
+			},
+			katakana_king: {
+				id: 'katakana_king',
+				name: '⚔️ Katakana King',
+				desc: 'Play 10 Katakana rounds',
+				icon: '👑'
+			},
+			both_scripts: {
+				id: 'both_scripts',
+				name: '🎭 Bilingual',
+				desc: 'Play both Hiragana and Katakana',
+				icon: '🌏'
+			},
+			hard_mode: {
+				id: 'hard_mode',
+				name: '💀 Hard Mode',
+				desc: 'Complete 5 rounds on Hard difficulty',
+				icon: '🔥'
+			},
+			speed_demon: {
+				id: 'speed_demon',
+				name: '⚡ Speed Demon',
+				desc: 'Average under 2 seconds per answer',
+				icon: '🏃'
+			}
+		};
 
-		// Hiragana Dakuon
-		hiragana_g_row_master: { id: 'hiragana_g_row_master', name: '🌸 G-Row Master', desc: 'Hiragana G-row avg under 2s', icon: 'が' },
-		hiragana_z_row_master: { id: 'hiragana_z_row_master', name: '🌸 Z-Row Master', desc: 'Hiragana Z-row avg under 2s', icon: 'ざ' },
-		hiragana_d_row_master: { id: 'hiragana_d_row_master', name: '🌸 D-Row Master', desc: 'Hiragana D-row avg under 2s', icon: 'だ' },
-		hiragana_b_row_master: { id: 'hiragana_b_row_master', name: '🌸 B-Row Master', desc: 'Hiragana B-row avg under 2s', icon: 'ば' },
-		hiragana_p_row_master: { id: 'hiragana_p_row_master', name: '🌸 P-Row Master', desc: 'Hiragana P-row avg under 2s', icon: 'ぱ' },
-
-		// Hiragana Yoon
-		hiragana_ky_yoon_master: { id: 'hiragana_ky_yoon_master', name: '🌸 KY Master', desc: 'Hiragana KY avg under 2s', icon: 'きゃ' },
-		hiragana_sh_yoon_master: { id: 'hiragana_sh_yoon_master', name: '🌸 SH Master', desc: 'Hiragana SH avg under 2s', icon: 'しゃ' },
-		hiragana_ch_yoon_master: { id: 'hiragana_ch_yoon_master', name: '🌸 CH Master', desc: 'Hiragana CH avg under 2s', icon: 'ちゃ' },
-		hiragana_ny_yoon_master: { id: 'hiragana_ny_yoon_master', name: '🌸 NY Master', desc: 'Hiragana NY avg under 2s', icon: 'にゃ' },
-		hiragana_hy_yoon_master: { id: 'hiragana_hy_yoon_master', name: '🌸 HY Master', desc: 'Hiragana HY avg under 2s', icon: 'ひゃ' },
-		hiragana_my_yoon_master: { id: 'hiragana_my_yoon_master', name: '🌸 MY Master', desc: 'Hiragana MY avg under 2s', icon: 'みゃ' },
-		hiragana_ry_yoon_master: { id: 'hiragana_ry_yoon_master', name: '🌸 RY Master', desc: 'Hiragana RY avg under 2s', icon: 'りゃ' },
-		hiragana_gy_yoon_master: { id: 'hiragana_gy_yoon_master', name: '🌸 GY Master', desc: 'Hiragana GY avg under 2s', icon: 'ぎゃ' },
-		hiragana_j_yoon_master: { id: 'hiragana_j_yoon_master', name: '🌸 J Master', desc: 'Hiragana J avg under 2s', icon: 'じゃ' },
-		hiragana_by_yoon_master: { id: 'hiragana_by_yoon_master', name: '🌸 BY Master', desc: 'Hiragana BY avg under 2s', icon: 'びゃ' },
-		hiragana_py_yoon_master: { id: 'hiragana_py_yoon_master', name: '🌸 PY Master', desc: 'Hiragana PY avg under 2s', icon: 'ぴゃ' },
-
-		// Katakana Seion
-		katakana_vowels_master: { id: 'katakana_vowels_master', name: '⚡ Vowels Master', desc: 'Katakana Vowels avg under 2s', icon: 'ア' },
-		katakana_k_row_master: { id: 'katakana_k_row_master', name: '⚡ K-Row Master', desc: 'Katakana K-row avg under 2s', icon: 'カ' },
-		katakana_s_row_master: { id: 'katakana_s_row_master', name: '⚡ S-Row Master', desc: 'Katakana S-row avg under 2s', icon: 'サ' },
-		katakana_t_row_master: { id: 'katakana_t_row_master', name: '⚡ T-Row Master', desc: 'Katakana T-row avg under 2s', icon: 'タ' },
-		katakana_n_row_master: { id: 'katakana_n_row_master', name: '⚡ N-Row Master', desc: 'Katakana N-row avg under 2s', icon: 'ナ' },
-		katakana_h_row_master: { id: 'katakana_h_row_master', name: '⚡ H-Row Master', desc: 'Katakana H-row avg under 2s', icon: 'ハ' },
-		katakana_m_row_master: { id: 'katakana_m_row_master', name: '⚡ M-Row Master', desc: 'Katakana M-row avg under 2s', icon: 'マ' },
-		katakana_y_row_master: { id: 'katakana_y_row_master', name: '⚡ Y-Row Master', desc: 'Katakana Y-row avg under 2s', icon: 'ヤ' },
-		katakana_r_row_master: { id: 'katakana_r_row_master', name: '⚡ R-Row Master', desc: 'Katakana R-row avg under 2s', icon: 'ラ' },
-		katakana_w_row_master: { id: 'katakana_w_row_master', name: '⚡ W-Row Master', desc: 'Katakana W-row avg under 2s', icon: 'ワ' },
-
-		// Katakana Dakuon
-		katakana_g_row_master: { id: 'katakana_g_row_master', name: '⚡ G-Row Master', desc: 'Katakana G-row avg under 2s', icon: 'ガ' },
-		katakana_z_row_master: { id: 'katakana_z_row_master', name: '⚡ Z-Row Master', desc: 'Katakana Z-row avg under 2s', icon: 'ザ' },
-		katakana_d_row_master: { id: 'katakana_d_row_master', name: '⚡ D-Row Master', desc: 'Katakana D-row avg under 2s', icon: 'ダ' },
-		katakana_b_row_master: { id: 'katakana_b_row_master', name: '⚡ B-Row Master', desc: 'Katakana B-row avg under 2s', icon: 'バ' },
-		katakana_p_row_master: { id: 'katakana_p_row_master', name: '⚡ P-Row Master', desc: 'Katakana P-row avg under 2s', icon: 'パ' },
-
-		// Katakana Yoon
-		katakana_ky_yoon_master: { id: 'katakana_ky_yoon_master', name: '⚡ KY Master', desc: 'Katakana KY avg under 2s', icon: 'キャ' },
-		katakana_sh_yoon_master: { id: 'katakana_sh_yoon_master', name: '⚡ SH Master', desc: 'Katakana SH avg under 2s', icon: 'シャ' },
-		katakana_ch_yoon_master: { id: 'katakana_ch_yoon_master', name: '⚡ CH Master', desc: 'Katakana CH avg under 2s', icon: 'チャ' },
-		katakana_ny_yoon_master: { id: 'katakana_ny_yoon_master', name: '⚡ NY Master', desc: 'Katakana NY avg under 2s', icon: 'ニャ' },
-		katakana_hy_yoon_master: { id: 'katakana_hy_yoon_master', name: '⚡ HY Master', desc: 'Katakana HY avg under 2s', icon: 'ヒャ' },
-		katakana_my_yoon_master: { id: 'katakana_my_yoon_master', name: '⚡ MY Master', desc: 'Katakana MY avg under 2s', icon: 'ミャ' },
-		katakana_ry_yoon_master: { id: 'katakana_ry_yoon_master', name: '⚡ RY Master', desc: 'Katakana RY avg under 2s', icon: 'リャ' },
-		katakana_gy_yoon_master: { id: 'katakana_gy_yoon_master', name: '⚡ GY Master', desc: 'Katakana GY avg under 2s', icon: 'ギャ' },
-		katakana_j_yoon_master: { id: 'katakana_j_yoon_master', name: '⚡ J Master', desc: 'Katakana J avg under 2s', icon: 'ジャ' },
-		katakana_by_yoon_master: { id: 'katakana_by_yoon_master', name: '⚡ BY Master', desc: 'Katakana BY avg under 2s', icon: 'ビャ' },
-		katakana_py_yoon_master: { id: 'katakana_py_yoon_master', name: '⚡ PY Master', desc: 'Katakana PY avg under 2s', icon: 'ピャ' },
-		
-		speed_demon: { id: 'speed_demon', name: '⚡ Speed Demon', desc: 'Complete all 52 kana sections averaging under 2 seconds', icon: '🏃'}
-	};
-
-		// ===== AUDIO =====
+// ===== AUDIO =====
 // Embedded audio files - PASTE YOUR BASE64 STRINGS BETWEEN THE QUOTES
 const AUDIO_FILES = {
 	// Achievement sound - plays when you unlock achievements
@@ -2098,6 +2093,17 @@ function loadAudioPreference() {
 		state.audioEnabled = saved === 'true';
 	}
 }
+
+function playSound(type) {
+	playCustomAudio(type);
+}
+
+function loadAudioPreference() {
+	const saved = localStorage.getItem('kanaBlitzAudio');
+	if (saved !== null) {
+		state.audioEnabled = saved === 'true';
+	}
+}
 		function loadAudioPreference() {
 			const saved = localStorage.getItem('kanaBlitzAudio');
 			if (saved !== null) {
@@ -2145,21 +2151,15 @@ function loadAudioPreference() {
 				container.appendChild(shootingStar);
 			}
 		}
-		
+
 		function loadThemePreference() {
 			const saved = localStorage.getItem('kanaBlitzTheme');
-			// dawn is the default, no class needed	
+			
 			if (saved === 'midnight') {
 				document.body.classList.add('midnight-theme');
 				createStars();
-			} 		
-		}
-		
-		function loadSectionStats() {
-			const saved = localStorage.getItem('kanaBlitzSectionStats');
-			if (saved) {
-				state.sectionStats = JSON.parse(saved);
-			} 		
+			}
+			// dawn is the default, no class needed
 		}
 
 		// ===== GAME LOGIC =====
@@ -2172,28 +2172,6 @@ function loadAudioPreference() {
 			}
 			
 			const kanaData = state.kanaType === 'hiragana' ? HIRAGANA : KATAKANA;
-			const SPEED_DEMON_REQUIRED_SECTIONS = [
-			  // Hiragana Seion (10)
-			  'hiragana_vowels', 'hiragana_k_row', 'hiragana_s_row', 'hiragana_t_row', 
-			  'hiragana_n_row', 'hiragana_h_row', 'hiragana_m_row', 'hiragana_y_row', 
-			  'hiragana_r_row', 'hiragana_w_row',
-			  // Hiragana Dakuon (5)
-			  'hiragana_g_row', 'hiragana_z_row', 'hiragana_d_row', 'hiragana_b_row', 'hiragana_p_row',
-			  // Hiragana Yoon (11)
-			  'hiragana_ky_yoon', 'hiragana_sh_yoon', 'hiragana_ch_yoon', 'hiragana_ny_yoon',
-			  'hiragana_hy_yoon', 'hiragana_my_yoon', 'hiragana_ry_yoon', 'hiragana_gy_yoon',
-			  'hiragana_j_yoon', 'hiragana_by_yoon', 'hiragana_py_yoon',
-			  // Katakana Seion (10)
-			  'katakana_vowels', 'katakana_k_row', 'katakana_s_row', 'katakana_t_row',
-			  'katakana_n_row', 'katakana_h_row', 'katakana_m_row', 'katakana_y_row',
-			  'katakana_r_row', 'katakana_w_row',
-			  // Katakana Dakuon (5)
-			  'katakana_g_row', 'katakana_z_row', 'katakana_d_row', 'katakana_b_row', 'katakana_p_row',
-			  // Katakana Yoon (11)
-			  'katakana_ky_yoon', 'katakana_sh_yoon', 'katakana_ch_yoon', 'katakana_ny_yoon',
-			  'katakana_hy_yoon', 'katakana_my_yoon', 'katakana_ry_yoon', 'katakana_gy_yoon',
-			  'katakana_j_yoon', 'katakana_by_yoon', 'katakana_py_yoon'
-			];
 			
 			// Handle 'all' section - return all kana of selected type
 			if (state.kanaSection === 'all') {
@@ -2323,9 +2301,6 @@ function loadAudioPreference() {
 			// Add gameplay-active class to prevent scrolling on mobile
 			document.body.classList.add('gameplay-active');
 			
-			// Play game start sound
-			playSound('gamestart');
-			
 			state.gameState = 'playing';
 			state.score = 0;
 			state.streak = 0;
@@ -2383,11 +2358,6 @@ function loadAudioPreference() {
 				const timerEl = document.getElementById('timer');
 				if (timerEl) {
 					timerEl.textContent = state.timeRemaining;
-				}
-				
-				// Play countdown warning at 5 seconds
-				if (state.timeRemaining === 5) {
-					playSound('countdown');
 				}
 				
 				if (state.timeRemaining <= 0) {
@@ -2472,11 +2442,6 @@ function loadAudioPreference() {
 					timerEl.textContent = state.timeRemaining;
 				}
 				
-				// Play countdown warning at 5 seconds
-				if (state.timeRemaining === 5) {
-					playSound('countdown');
-				}
-				
 				if (state.timeRemaining <= 0) {
 					endGame();
 				}
@@ -2521,20 +2486,6 @@ function loadAudioPreference() {
 					feedback.className = 'feedback correct';
 				}
 				playSound('correct');
-				
-				// Play milestone sound when score hits multiples of 10
-				if (state.score % 10 === 0 && state.score > 0) {
-					setTimeout(() => playSound('milestone'), 200);
-				}
-				
-				// Play dynamic streak sounds at certain milestones
-				if (state.streak === 5) {
-					setTimeout(() => playSound('streak5'), 300);
-				} else if (state.streak === 10) {
-					setTimeout(() => playSound('streak10'), 300);
-				} else if (state.streak === 20) {
-					setTimeout(() => playSound('streak20'), 300);
-				}
 				
 				checkAchievements();
 				
@@ -2642,9 +2593,6 @@ function loadAudioPreference() {
 			
 			saveScore();
 			state.gameState = 'gameover';
-			
-			// Play game over sound
-			playSound('gameover');
 			render();
 		}
 
@@ -2689,19 +2637,8 @@ function loadAudioPreference() {
 				unlocked.push('hard_mode');
 			}
 			
-			// Section mastery achievements
-			const sectionKey = `${state.kanaType}_${state.kanaSection}_master`;
 			const avgTime = state.roundsPlayed > 0 ? state.totalTime / state.roundsPlayed : 0;
-
-			if (avgTime < 2 && state.roundsPlayed >= 10 && ACHIEVEMENTS[sectionKey] && !state.unlockedAchievements.includes(sectionKey)) {
-				unlocked.push(sectionKey);
-			}
-
-			// Speed Demon - requires all 52 section achievements
-			const allSectionAchievements = SPEED_DEMON_REQUIRED_SECTIONS.map(s => s + '_master');
-			const allSectionsMastered = allSectionAchievements.every(id => state.unlockedAchievements.includes(id));
-
-			if (allSectionsMastered && !state.unlockedAchievements.includes('speed_demon')) {
+			if (avgTime < 2 && state.roundsPlayed >= 10 && !state.unlockedAchievements.includes('speed_demon')) {
 				unlocked.push('speed_demon');
 			}
 			
@@ -3302,8 +3239,8 @@ function loadAudioPreference() {
 												</div>
 											</div>
 										`;
-									}).join('')}</div>
-							</div>	
+									}).join('')} </div>
+							</div>
 						`}
 						
 						<div class="btn-group mt-4">
@@ -3455,7 +3392,7 @@ function loadAudioPreference() {
 			// Update section dropdown
 			updateSectionDropdown();
 		};
-		
+
 		function updateSectionDropdown() {
 			const kanaTypeSelect = document.getElementById('kanaType');
 			const sectionSelect = document.getElementById('kanaSection');
@@ -3546,14 +3483,9 @@ function loadAudioPreference() {
 			startGame();
 		};
 
-		window.showGameMode = () => {
-		playSound('buttonclick');
-		state.gameState = 'gameMode';
-		render();
-	};
+		window.showGameMode = () => {            state.gameState = 'gameMode';            render();        };
 
 		window.backToMenu = () => {
-			playSound('buttonclick');
 			state.gameState = 'menu';
 			render();
 		};
@@ -3569,13 +3501,11 @@ function loadAudioPreference() {
 		};
 
 		window.showStats = () => {
-			playSound('buttonclick');
 			state.gameState = 'stats';
 			render();
 		};
 
 		window.showSettings = () => {
-			playSound('buttonclick');
 			state.gameState = 'settings';
 			render();
 		};
@@ -3627,7 +3557,6 @@ function loadAudioPreference() {
 		loadAchievementData();
 		loadAudioPreference();
 		loadThemePreference();
-		loadSectionStats();  
 		render();
 	</script>
 </body>
